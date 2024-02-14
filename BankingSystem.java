@@ -3,10 +3,14 @@ import java.util.HashMap;
 
 class BankingSystem 
 {
+    // Hashmap for storing the Accounts of the Bank
     HashMap<Integer,BankAccount> accounts = new HashMap<>();
+
+    // Map to store all the Trasaction History of the Person
     HashMap<Integer,ArrayList<Transaction>> history = new HashMap<>();
     public static int count = 0;
 
+    // Adding account in the Bank of the customer
     public void AddAccount(BankAccount b)
     {
         int ac = b.getAccountNumber();
@@ -22,6 +26,7 @@ class BankingSystem
         }
     }
 
+    // Method to deposit the Money in the customer account and handling exseptions if Account doesn't exit or amount is negative
     public void Deposit(int AC, int amt)
     {
 
@@ -50,6 +55,7 @@ class BankingSystem
 
     }
 
+    // Method to withdraw the mmoney from the customer account and handling exceptions
     public void withdraw(int Ac,int amt)
     {
         try {
@@ -61,6 +67,8 @@ class BankingSystem
             int val = bc.getBalance();
             int temp = val - amt;
             val = val - amt;
+
+            // Checking if there is amount is larger than the present amount
             if(temp<0)
             {
                 throw new BankException("Insuffient Amount to be drawn");
@@ -82,6 +90,7 @@ class BankingSystem
         }
     }
 
+    // Method to display all the transactions of  the customer
     public void displayTransactionInfo(int act)
     {
         try {
@@ -94,6 +103,7 @@ class BankingSystem
         }
     }
 
+    // Method to print the current balance of the customer
     public void currentBalance(int act)
     {
         try {
@@ -110,6 +120,7 @@ class BankingSystem
         }
     }
 
+    // Transfering the amount from one customer to another customer with specific amount
     public void transfer(int FromAc,int ToAc,int amt)
     {
         try {
