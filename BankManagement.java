@@ -2,12 +2,15 @@
 import java.util.Scanner;
 
 public class BankManagement {
+
+    // main function to call other class
     public static void main(String[] args) {
         
         BankingSystem bankingSystem = new BankingSystem();
         Scanner sc = new Scanner(System.in);
         boolean flag = true;
 
+        // Entering the value for the transaction to be Done
         do {
             System.out.println("*****Welcome to the Banking System******");
             System.out.println("1. Create Account\n" +
